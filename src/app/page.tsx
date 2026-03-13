@@ -1,101 +1,91 @@
-import Image from "next/image";
+import { SearchBar } from "@/components/SearchBar"
+import { CategoryCard } from "@/components/CategoryCard"
+import { StatusBanner } from "@/components/StatusBanner"
+import { mockIncidents } from "@/lib/mock-data"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import {
+  HelpCircle,
+  CreditCard,
+  GitBranch,
+  Terminal,
+  Cpu,
+  Users,
+  ServerCrash,
+  Blocks,
+  ShieldAlert,
+  Gavel,
+  Bug,
+  Lightbulb,
+  Ticket,
+  Activity,
+  UserCircle
+} from "lucide-react"
 
-export default function Home() {
+export default function HomePage() {
+  const categories = [
+    { title: "Account & Login", description: "Password resets, 2FA, SSO, and account recovery.", icon: UserCircle, href: "/contact?topic=account" },
+    { title: "Billing & Payments", description: "Invoices, upgrading plans, and payment methods.", icon: CreditCard, href: "/billing" },
+    { title: "Repositories & Git", description: "Cloning, commits, large files, and Git LFS.", icon: GitBranch, href: "https://docs.trackcodex.com" },
+    { title: "TrackCodex IDE", description: "Workspaces, environments, extensions, and editor issues.", icon: Terminal, href: "https://docs.trackcodex.com" },
+    { title: "AI Tools", description: "Code generation, chat completion, and limits.", icon: Cpu, href: "https://docs.trackcodex.com" },
+    { title: "Collaboration & Teams", description: "Organizations, members, access control, and roles.", icon: Users, href: "https://docs.trackcodex.com" },
+    { title: "Deployments", description: "Build failures, environments, and runtime issues.", icon: ServerCrash, href: "https://docs.trackcodex.com" },
+    { title: "API & Integrations", description: "Webhooks, API keys, ratelimits, and third-party apps.", icon: Blocks, href: "https://docs.trackcodex.com" },
+    { title: "Security & Abuse", description: "Report vulnerabilities, spam, or Terms of Service violations.", icon: ShieldAlert, href: "/security" },
+    { title: "Legal & Policy", description: "Privacy, terms, DMCA, and compliance info.", icon: Gavel, href: "/policies" },
+    { title: "Bug Report", description: "Report a bug or unexpected behavior in TrackCodex.", icon: Bug, href: "/new?category=BUG_REPORT" },
+    { title: "Feature Request", description: "Suggest a new feature or improvement.", icon: Lightbulb, href: "/new?category=FEATURE_REQUEST" },
+  ]
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <StatusBanner incidents={mockIncidents} />
+      
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-primary/10 via-background to-background pt-20 pb-16 px-4">
+        <div className="container mx-auto text-center max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            How can we help you today?
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Search our knowledge base, submit a support ticket, or check the platform status.
+          </p>
+          
+          <SearchBar />
+          
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="rounded-full shadow-lg hover:shadow-primary/25 transition-all">
+              <Link href="/new">
+                <Ticket className="w-5 h-5 mr-2" />
+                Submit a Ticket
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full bg-background/50 backdrop-blur">
+              <Link href="/status">
+                <Activity className="w-5 h-5 mr-2" />
+                View Platform Status
+              </Link>
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </section>
+
+      {/* Main Categories Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="flex items-center gap-2 mb-8">
+            <HelpCircle className="w-6 h-6 text-primary" />
+            <h2 className="text-2xl font-bold tracking-tight">Popular Help Topics</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {categories.map((cat, idx) => (
+              <CategoryCard key={idx} {...cat} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }

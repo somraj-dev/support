@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TicketStatus {
+  OPEN
+  PENDING
+  RESOLVED
+  ARCHIVED
+}
+
+enum TicketSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum TicketCategory {
+  ACCOUNT_LOGIN
+  BILLING_PAYMENTS
+  REPOSITORIES_GIT
+  IDE
+  AI_TOOLS
+  COLLABORATION
+  DEPLOYMENT
+  API_INTEGRATION
+  SECURITY_ABUSE
+  LEGAL_POLICY
+  BUG_REPORT
+  FEATURE_REQUEST
+  OTHER
+}
+
+// Minimal mock models for Support Portal V1
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tickets   Ticket[] @relation("UserTickets")
+  messages  TicketMessage[]
+}
+
+model Organization {
+  id        String   @id @default(uuid())
+  name      String
+  plan      String   @default("FREE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  tickets   Ticket[]
+}
+
+model Workspace {
+  id             String   @id @default(uuid())
+  organizationId String
+  name           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  tickets        Ticket[]
+}
+
+model Ticket {
+  id          String        @id @default(uuid())
+  subject     String
+  description String        @db.Text
+  status      TicketStatus  @default(OPEN)
+  severity    TicketSeverity @default(LOW)
+  category    TicketCategory
+  
+  requesterId String
+  requester   User          @relation("UserTickets", fields: [requesterId], references: [id])
+  
+  orgId       String?
+  org         Organization? @relation(fields: [orgId], references: [id])
+  
+  workspaceId String?
+  workspace   Workspace?    @relation(fields: [workspaceId], references: [id])
+  
+  assignedTo  String?       // ID of support agent
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  messages    TicketMessage[]
+  attachments TicketAttachment[]
+  tags        TicketTag[]
+  history     TicketStatusHistory[]
+}
+
+model TicketMessage {
+  id             String   @id @default(uuid())
+  ticketId       String
+  ticket         Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  
+  senderId       String
+  sender         User     @relation(fields: [senderId], references: [id])
+  
+  body           String   @db.Text
+  isInternalNote Boolean  @default(false)
+  
+  createdAt      DateTime @default(now())
+}
+
+model TicketAttachment {
+  id        String   @id @default(uuid())
+  ticketId  String
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  
+  fileUrl   String
+  fileName  String
+  mimeType  String
+  size      Int
+  
+  createdAt DateTime @default(now())
+}
+
+model TicketTag {
+  id        String   @id @default(uuid())
+  ticketId  String
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  name      String
+}
+
+model TicketStatusHistory {
+  id        String       @id @default(uuid())
+  ticketId  String
+  ticket    Ticket       @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  status    TicketStatus
+  changedBy String       // ID of user who changed it
+  createdAt DateTime     @default(now())
+}
+
+model SupportRole {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  role        String   // admin, agent, billing, trust_safety, security
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SupportSLA {
+  id                  String   @id @default(uuid())
+  plan                String   @unique // FREE, PRO, TEAM, ENTERPRISE
+  firstResponseTarget Int      // in minutes
+  resolutionTarget    Int      // in minutes
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
