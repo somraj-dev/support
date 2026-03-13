@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Search, UserCircle, Menu } from "lucide-react"
 
@@ -30,14 +32,16 @@ export function Header() {
         </div>
         
         <div className="flex items-center gap-4">
-          <form className="hidden lg:flex relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <input
-              type="search"
-              placeholder="Search help articles..."
-              className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 pl-8 md:w-[200px] lg:w-[300px]"
-            />
-          </form>
+          <button 
+            onClick={() => document.dispatchEvent(new CustomEvent("open-command-palette"))}
+            className="hidden lg:flex items-center relative h-9 w-[200px] lg:w-[300px] rounded-md border border-input bg-transparent px-3 py-1 text-sm text-muted-foreground shadow-sm transition-colors hover:bg-accent/50 group"
+          >
+            <Search className="mr-2 h-4 w-4 shrink-0 opacity-50 group-hover:opacity-100" />
+            <span>Search help...</span>
+            <kbd className="pointer-events-none absolute right-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </button>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
