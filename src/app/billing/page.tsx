@@ -20,7 +20,7 @@ export default function BillingPage() {
       />
 
       <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <Link href="https://trackcodex.com/settings/billing" target="_blank" className="block">
+        <Link href="https://trackcodex.com/settings/billing" className="block">
           <Card className="h-full hover:border-primary/50 transition-colors">
             <CardHeader>
               <CreditCard className="w-8 h-8 text-primary mb-2" />
@@ -31,7 +31,7 @@ export default function BillingPage() {
             </CardContent>
           </Card>
         </Link>
-        <Link href="https://trackcodex.com/settings/billing/invoices" target="_blank" className="block">
+        <Link href="https://trackcodex.com/settings/billing/invoices" className="block">
           <Card className="h-full hover:border-primary/50 transition-colors">
             <CardHeader>
               <FileText className="w-8 h-8 text-blue-500 mb-2" />

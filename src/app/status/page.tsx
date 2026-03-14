@@ -15,7 +15,7 @@ export default function StatusPage() {
         description="Current system status and incident history."
         action={
           <Button variant="outline" asChild>
-            <Link href="https://status.trackcodex.com" target="_blank">
+            <Link href="https://status.trackcodex.com">
               Subscribe to Updates <ExternalLink className="ml-2 w-4 h-4" />
             </Link>
           </Button>
@@ -101,7 +101,7 @@ export default function StatusPage() {
             <p className="text-sm text-muted-foreground">Visit our dedicated status page for detailed graphs and past incidents.</p>
           </div>
           <Button variant="outline" asChild className="shrink-0 bg-background">
-            <Link href="https://status.trackcodex.com" target="_blank">
+            <Link href="https://status.trackcodex.com">
               Go to status.trackcodex.com
             </Link>
           </Button>

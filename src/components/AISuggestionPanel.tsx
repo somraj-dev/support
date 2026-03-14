@@ -24,7 +24,7 @@ export function AISuggestionPanel({ query, onResolve, onContinue }: AISuggestion
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-3">
-          <Link href="https://docs.trackcodex.com" target="_blank" className="flex items-start gap-3 p-3 rounded-lg bg-background border hover:border-primary/50 transition-colors">
+          <Link href="https://docs.trackcodex.com" className="flex items-start gap-3 p-3 rounded-lg bg-background border hover:border-primary/50 transition-colors">
             <FileText className="w-5 h-5 text-blue-500 mt-0.5 shrink-0" />
             <div>
               <h4 className="font-medium text-sm">Managing Billing and Payment Methods</h4>
@@ -33,7 +33,7 @@ export function AISuggestionPanel({ query, onResolve, onContinue }: AISuggestion
               </p>
             </div>
           </Link>
-          <Link href="https://docs.trackcodex.com" target="_blank" className="flex items-start gap-3 p-3 rounded-lg bg-background border hover:border-primary/50 transition-colors">
+          <Link href="https://docs.trackcodex.com" className="flex items-start gap-3 p-3 rounded-lg bg-background border hover:border-primary/50 transition-colors">
             <FileText className="w-5 h-5 text-blue-500 mt-0.5 shrink-0" />
             <div>
               <h4 className="font-medium text-sm">Troubleshooting 403 Forbidden Errors</h4>
