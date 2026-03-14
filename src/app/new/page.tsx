@@ -126,6 +126,7 @@ function NewTicketForm() {
                         <SelectItem value={TicketCategory.IDE}>TrackCodex IDE</SelectItem>
                         <SelectItem value={TicketCategory.DEPLOYMENT}>Deployments</SelectItem>
                         <SelectItem value={TicketCategory.BUG_REPORT}>Report a Bug</SelectItem>
+                        <SelectItem value={TicketCategory.ACCOUNT_SUSPENSION_APPEAL}>Account Suspension Appeal</SelectItem>
                         <SelectItem value={TicketCategory.OTHER}>Other Issue</SelectItem>
                       </SelectContent>
                     </Select>

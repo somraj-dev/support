@@ -86,6 +86,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Docs CTA Section */}
+      <section className="py-16 px-4 bg-muted/30 border-t">
+        <div className="container mx-auto text-center max-w-3xl">
+          <HelpCircle className="w-12 h-12 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl font-bold mb-4">Check our Documentation</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Before opening a ticket, you might find a quick answer in our extensive technical documentation covering every feature of TrackCodex.
+          </p>
+          <Button asChild variant="outline" size="lg" className="rounded-full shadow-sm">
+            <Link href="https://docs.trackcodex.com">
+              Go to TrackCodex Docs
+            </Link>
+          </Button>
+        </div>
+      </section>
     </>
   )
 }

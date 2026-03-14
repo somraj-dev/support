@@ -4,6 +4,7 @@ import "./globals.css"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { CommandPalette } from "@/components/CommandPalette"
+import { CookieConsent } from "@/components/CookieConsent"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CommandPalette />
+        <CookieConsent />
       </body>
     </html>
   )

@@ -25,9 +25,10 @@ export function Header() {
             <span className="font-bold hidden sm:inline-block">TrackCodex Support</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <Link href="https://trackcodex.com" className="transition-colors hover:text-foreground/80 text-foreground/60">Main App</Link>
             <Link href="/tickets" className="transition-colors hover:text-foreground/80 text-foreground/60">My Tickets</Link>
             <Link href="/status" className="transition-colors hover:text-foreground/80 text-foreground/60">Status</Link>
-            <Link href="https://docs.trackcodex.com" className="transition-colors hover:text-foreground/80 text-foreground/60">Docs</Link>
+            <Link href="https://docs.trackcodex.com" className="transition-colors hover:text-foreground font-semibold">Docs</Link>
           </nav>
         </div>
         

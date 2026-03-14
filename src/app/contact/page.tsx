@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/PageHeader"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Ticket, ExternalLink, Mail, Phone, MapPin, Building2, Briefcase } from "lucide-react"
+import { Ticket, ExternalLink, Mail, Phone, MapPin, Building2, Briefcase, ShieldAlert, Gavel } from "lucide-react"
 
 export default function ContactPage() {
   const departments = [
@@ -29,10 +29,17 @@ export default function ContactPage() {
     },
     {
       title: "Trust & Safety",
-      icon: ExternalLink,
+      icon: ShieldAlert,
       desc: "Report abusive behavior, spam, malware or DMCA takedowns.",
       link: "/abuse",
       linkText: "Report Abuse"
+    },
+    {
+      title: "Account Suspension Appeals",
+      icon: Gavel,
+      desc: "Believe your account was suspended in error? Submit an appeal for review.",
+      link: "/appeal",
+      linkText: "Appeal Suspension"
     }
   ]
 

@@ -17,18 +17,27 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold mb-4">Resources</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="https://docs.trackcodex.com" className="hover:text-foreground">Documentation</Link></li>
+              <li><Link href="https://docs.trackcodex.com" className="hover:text-foreground font-medium">Documentation</Link></li>
               <li><Link href="https://trackcodex.com/community" className="hover:text-foreground">Community Forum</Link></li>
               <li><Link href="https://trackcodex.com/blog" className="hover:text-foreground">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-foreground">Contact Us</Link></li>
+              <li><Link href="https://trackcodex.com/status" className="hover:text-foreground">Platform Status</Link></li>
+              <li><Link href="/contact" className="hover:text-foreground">Contact Support</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold mb-4">Legal</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/policies" className="hover:text-foreground">Support Policy</Link></li>
-              <li><Link href="/policies" className="hover:text-foreground">Terms of Service</Link></li>
-              <li><Link href="/policies" className="hover:text-foreground">Privacy Policy</Link></li>
+              <li><Link href="https://docs.trackcodex.com/governance/policies/terms" className="hover:text-foreground">Terms of Service</Link></li>
+              <li><Link href="https://docs.trackcodex.com/governance/policies/privacy" className="hover:text-foreground">Privacy Policy</Link></li>
+              <li><Link href="https://docs.trackcodex.com/governance/security" className="hover:text-foreground">Security Policy</Link></li>
+              <li>
+                <button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-settings'))}
+                  className="hover:text-foreground inline-block text-left"
+                >
+                  Manage cookies
+                </button>
+              </li>
             </ul>
           </div>
           <div>
