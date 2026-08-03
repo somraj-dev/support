@@ -1,6 +1,6 @@
 import { PageHeader } from "@/components/PageHeader"
 import { Card, CardContent } from "@/components/ui/card"
-import { ExternalLink, ShieldCheck, FileText, Scale, Users, HeadphonesIcon, HeartPulse, Building2 } from "lucide-react"
+import { ExternalLink, ShieldCheck, FileText, Scale, HeadphonesIcon, Building2 } from "lucide-react"
 
 export default function PoliciesPage() {
   const policies = [

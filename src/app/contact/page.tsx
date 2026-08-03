@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/PageHeader"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Ticket, Mail, Phone, MapPin, Building2, Briefcase, ShieldAlert, Gavel, HeartPulse, Stethoscope } from "lucide-react"
+import { Mail, Phone, MapPin, Building2, ShieldAlert, Gavel, HeartPulse, Stethoscope } from "lucide-react"
 
 export default function ContactPage() {
   const departments = [

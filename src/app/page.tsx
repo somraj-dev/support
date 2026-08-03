@@ -1,13 +1,11 @@
-import { SearchBar } from "@/components/SearchBar"
 import { CategoryCard } from "@/components/CategoryCard"
 import { StatusBanner } from "@/components/StatusBanner"
 import { mockIncidents } from "@/lib/mock-data"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from "next/link"
 import {
-  HelpCircle,
   CreditCard,
   UserCircle,
   Calendar,
@@ -25,7 +23,6 @@ import {
   Ticket,
   Activity,
   HeartPulse,
-  PhoneCall,
   MessageSquare,
   Users,
   ShieldCheck,
@@ -33,13 +30,7 @@ import {
   ChevronRight,
   Download,
   Headphones,
-  CheckCircle2,
-  Sparkles,
-  Shield,
-  Zap,
-  Clock,
-  ArrowRight,
-  Play
+  Clock
 } from "lucide-react"
 
 export default function HomePage() {
@@ -185,9 +176,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 font-sans">
             {quickActions.map((qa, i) => (
               <Link key={i} href={qa.href}>
-                <Card className={`h-full bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs hover:shadow-md hover:border-blue-400 transition-all cursor-pointer ${qa.highlight ? 'border-blue-300 bg-blue-50/30' : ''}`}>
+                <Card className="h-full bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs hover:shadow-md hover:border-blue-400 transition-all cursor-pointer">
                   <CardContent className="p-0 flex items-center gap-3.5">
-                    <div className={`p-2.5 rounded-xl shrink-0 ${qa.highlight ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}>
+                    <div className="p-2.5 rounded-xl shrink-0 bg-blue-50 text-blue-600">
                       <qa.icon className="w-5 h-5" />
                     </div>
                     <div>
