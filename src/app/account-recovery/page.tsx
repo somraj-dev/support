@@ -58,22 +58,22 @@ export default function AccountRecoveryPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <KeyRound className="w-5 h-5 text-primary" />
-                Find your account
+                Find your patient or provider account
               </CardTitle>
-              <CardDescription>Enter the email address associated with your TrackCodex account.</CardDescription>
+              <CardDescription>Enter the email address or mobile number associated with your AxioVital account.</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSendLink} className="space-y-4">
                 <Input 
                   type="email" 
-                  placeholder="name@example.com" 
+                  placeholder="doctor@hospital.org or patient@example.com" 
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required 
                   autoFocus
                 />
                 <Button type="submit" className="w-full">
-                  Send Recovery Email
+                  Send Recovery Verification Code
                 </Button>
               </form>
             </CardContent>
@@ -117,8 +117,8 @@ export default function AccountRecoveryPage() {
               </p>
               <div className="pt-6">
                 <Button className="w-full" asChild>
-                  <a href="https://trackcodex.com/login">
-                    Proceed to Login <ArrowRight className="w-4 h-4 ml-2" />
+                  <a href="https://axiovital.quantaforze.com/login">
+                    Proceed to AxioVital Login <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
               </div>

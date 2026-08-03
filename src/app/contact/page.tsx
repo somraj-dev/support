@@ -2,66 +2,66 @@ import { PageHeader } from "@/components/PageHeader"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Ticket, Mail, Phone, MapPin, Building2, Briefcase, ShieldAlert, Gavel } from "lucide-react"
+import { Ticket, Mail, Phone, MapPin, Building2, Briefcase, ShieldAlert, Gavel, HeartPulse, Stethoscope } from "lucide-react"
 
 export default function ContactPage() {
   const departments = [
     {
-      title: "Technical Support",
-      icon: Ticket,
-      desc: "Get help with TrackCodex products, IDE errors, or bugs.",
+      title: "Healthcare Technical Support",
+      icon: Stethoscope,
+      desc: "Get assistance with AxioVital EHR integration, doctor portals, and patient account issues.",
       link: "/new",
-      linkText: "Open Support Ticket"
+      linkText: "Submit Support Request"
     },
     {
-      title: "Sales & Enterprise",
-      icon: Briefcase,
-      desc: "Discuss volume licensing, custom SLAs, or self-hosted deployment.",
-      link: "mailto:sales@trackcodex.com",
-      linkText: "sales@trackcodex.com"
-    },
-    {
-      title: "Security & Bug Bounty",
+      title: "Hospital & Enterprise Sales",
       icon: Building2,
-      desc: "Report security vulnerabilities or inquire about our HackerOne program.",
+      desc: "Discuss enterprise hospital licenses, custom SLAs, or multi-clinic deployments.",
+      link: "mailto:enterprise@axiovital.quantaforze.com",
+      linkText: "enterprise@axiovital.quantaforze.com"
+    },
+    {
+      title: "HIPAA & Security Operations",
+      icon: ShieldAlert,
+      desc: "Report security vulnerabilities or inquire about HIPAA & ISO 27001 data compliance.",
       link: "/security",
       linkText: "Report Vulnerability"
     },
     {
-      title: "Trust & Safety",
-      icon: ShieldAlert,
-      desc: "Report abusive behavior, spam, malware or DMCA takedowns.",
+      title: "Trust, Safety & Patient Privacy",
+      icon: HeartPulse,
+      desc: "Report unauthorized access, patient data misuse, or platform terms violations.",
       link: "/abuse",
-      linkText: "Report Abuse"
+      linkText: "Report Privacy Abuse"
     },
     {
-      title: "Account Suspension Appeals",
+      title: "Account & Access Appeals",
       icon: Gavel,
-      desc: "Believe your account was suspended in error? Submit an appeal for review.",
+      desc: "Request a review for suspended provider credentials or locked clinic accounts.",
       link: "/appeal",
-      linkText: "Appeal Suspension"
+      linkText: "Submit Access Appeal"
     }
   ]
 
   return (
-    <div className="container max-w-5xl py-10">
+    <div className="container max-w-5xl py-12">
       <PageHeader 
-        title="Contact Us" 
-        description="Choose the right department to ensure your request is handled quickly."
-        breadcrumbs={[{ label: "Contact Routes" }]}
+        title="Contact Healthcare Support" 
+        description="Connect with the appropriate AxioVital team to resolve clinical, technical, or administrative requests."
+        breadcrumbs={[{ label: "Contact Support" }]}
       />
 
       <div className="grid md:grid-cols-2 gap-6 mb-16">
         {departments.map((dept, i) => (
-          <Card key={i} className="hover:border-primary/50 transition-colors flex flex-col">
+          <Card key={i} className="bg-white border border-slate-200/90 rounded-2xl shadow-2xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col">
             <CardContent className="p-6 flex-1 flex flex-col">
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-muted rounded-lg shrink-0">
-                  <dept.icon className="w-6 h-6 text-foreground" />
+                <div className="p-3 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+                  <dept.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">{dept.title}</h3>
-                  <p className="text-muted-foreground mt-1">{dept.desc}</p>
+                  <h3 className="font-bold text-slate-900 text-lg">{dept.title}</h3>
+                  <p className="text-sm text-slate-600 mt-1 leading-relaxed">{dept.desc}</p>
                 </div>
               </div>
               <div className="mt-auto pt-4">
@@ -76,40 +76,38 @@ export default function ContactPage() {
 
       <div className="grid lg:grid-cols-2 gap-10">
         <div>
-          <h2 className="text-2xl font-bold mb-6">Corporate Headquarters</h2>
-          <Card className="bg-muted/30 border-none">
+          <h2 className="text-2xl font-bold mb-6">AxioVital Healthcare HQ</h2>
+          <Card className="bg-white border border-slate-200/90 shadow-2xs rounded-2xl">
             <CardContent className="p-8 space-y-6">
               <div className="flex gap-4 items-start">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-lg">Quantaforze LLC</h4>
-                  <p className="text-muted-foreground mt-1 leading-relaxed">
-                    123 Innovation Drive<br />
-                    Suite 500<br />
-                    San Francisco, CA 94105<br />
+                  <h4 className="font-bold text-slate-900 text-lg">AxioVital Healthcare Technologies Inc.</h4>
+                  <p className="text-slate-600 mt-1 leading-relaxed text-sm">
+                    500 Healthcare Plaza<br />
+                    Suite 1200<br />
+                    Boston, MA 02115<br />
                     United States
                   </p>
                 </div>
               </div>
               <div className="flex gap-4 items-center">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <p className="text-muted-foreground">+1 (800) 555-CODE</p>
+                <Phone className="w-5 h-5 text-blue-600 shrink-0" />
+                <p className="text-slate-600 text-sm font-medium">+1 (800) 555-AXIO (2946)</p>
               </div>
               <div className="flex gap-4 items-center">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <p className="text-muted-foreground">hello@trackcodex.com</p>
+                <Mail className="w-5 h-5 text-blue-600 shrink-0" />
+                <p className="text-slate-600 text-sm font-medium">support@axiovital.quantaforze.com</p>
               </div>
             </CardContent>
           </Card>
         </div>
         
-        <div className="flex items-center justify-center p-8 border rounded-xl bg-muted/10 overflow-hidden relative min-h-[300px]">
-          {/* Aesthetic map placeholder */}
-          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-grid-pattern" />
-          <div className="relative text-center z-10 w-full max-w-sm backdrop-blur-sm bg-background/80 p-6 rounded-xl border shadow-sm">
-            <Building2 className="w-10 h-10 text-primary mx-auto mb-3" />
-            <h3 className="font-bold text-lg mb-2">TrackCodex HQ</h3>
-            <p className="text-sm text-muted-foreground">Our engineers operate globally, but our core team is based in SF.</p>
+        <div className="flex items-center justify-center p-8 border border-slate-200 rounded-2xl bg-blue-50/40 overflow-hidden relative min-h-[300px]">
+          <div className="relative text-center z-10 w-full max-w-sm bg-white p-6 rounded-2xl border border-slate-200 shadow-md">
+            <HeartPulse className="w-10 h-10 text-blue-600 mx-auto mb-3 animate-pulse" />
+            <h3 className="font-bold text-slate-900 text-lg mb-2">AxioVital Global Care Desk</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">Our 24/7 clinical support team operates globally to ensure continuous hospital uptime.</p>
           </div>
         </div>
       </div>

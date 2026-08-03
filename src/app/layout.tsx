@@ -9,8 +9,8 @@ import { CookieConsent } from "@/components/CookieConsent"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TrackCodex Support",
-  description: "Support portal for TrackCodex platform and tools.",
+  title: "AxioVital Support Center",
+  description: "Official support portal for AxioVital Enterprise Digital Healthcare Platform.",
 }
 
 export default function RootLayout({
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+    <html lang="en" className="light">
+      <body className={`${inter.className} min-h-screen flex flex-col bg-white text-slate-900 antialiased`}>
         <Header />
         <main className="flex-1">
           {children}

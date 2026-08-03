@@ -12,18 +12,18 @@ interface TicketCardProps {
 export function TicketCard({ ticket }: TicketCardProps) {
   return (
     <Link href={`/tickets/${ticket.id}`}>
-      <Card className="p-4 sm:p-5 hover:bg-muted/50 transition-colors cursor-pointer group border-muted-foreground/20">
+      <Card className="p-5 bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-md transition-all cursor-pointer group rounded-xl shadow-2xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1 overflow-hidden">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-              <span className="font-mono text-primary/80">{ticket.id}</span>
+          <div className="space-y-1.5 overflow-hidden">
+            <div className="flex items-center gap-2 text-xs text-slate-500">
+              <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60">{ticket.id}</span>
               <span>•</span>
-              <span>Created {formatDistanceToNow(ticket.createdAt, { addSuffix: true })}</span>
+              <span>Logged {formatDistanceToNow(ticket.createdAt, { addSuffix: true })}</span>
             </div>
-            <h3 className="font-medium text-base truncate group-hover:text-primary transition-colors">
+            <h3 className="font-bold text-slate-900 text-base truncate group-hover:text-blue-600 transition-colors">
               {ticket.subject}
             </h3>
-            <p className="text-sm text-muted-foreground line-clamp-1">
+            <p className="text-sm text-slate-600 line-clamp-1 leading-relaxed">
               {ticket.description}
             </p>
           </div>

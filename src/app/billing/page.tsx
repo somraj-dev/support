@@ -7,49 +7,49 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { CreditCard, FileText, Briefcase, Mail } from "lucide-react"
+import { CreditCard, FileText, Briefcase, Mail, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 
 export default function BillingPage() {
   return (
-    <div className="container max-w-5xl py-10">
+    <div className="container max-w-5xl py-12">
       <PageHeader 
-        title="Billing & Payments" 
-        description="Manage your subscription, view invoices, and resolve payment issues."
-        breadcrumbs={[{ label: "Billing Help" }]}
+        title="Billing & Insurance" 
+        description="Manage healthcare subscription tiers, view hospital invoices, and resolve insurance claim billing questions."
+        breadcrumbs={[{ label: "Billing & Insurance" }]}
       />
 
       <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <Link href="https://trackcodex.com/settings/billing" className="block">
-          <Card className="h-full hover:border-primary/50 transition-colors">
+        <Link href="https://axiovital.quantaforze.com/settings/billing" className="block">
+          <Card className="h-full bg-white border border-slate-200/90 rounded-2xl shadow-2xs hover:shadow-md hover:border-blue-400 transition-all">
             <CardHeader>
-              <CreditCard className="w-8 h-8 text-primary mb-2" />
-              <CardTitle>Update Payment Method</CardTitle>
+              <CreditCard className="w-8 h-8 text-blue-600 mb-2" />
+              <CardTitle className="font-bold text-slate-900 text-lg">Update Payment & Claims</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Add or modify credit cards and billing addresses in your account settings.</p>
+              <p className="text-sm text-slate-600 leading-relaxed">Manage hospital billing accounts, credit cards, and electronic claim clearinghouse profiles.</p>
             </CardContent>
           </Card>
         </Link>
-        <Link href="https://trackcodex.com/settings/billing/invoices" className="block">
-          <Card className="h-full hover:border-primary/50 transition-colors">
+        <Link href="https://axiovital.quantaforze.com/settings/billing/invoices" className="block">
+          <Card className="h-full bg-white border border-slate-200/90 rounded-2xl shadow-2xs hover:shadow-md hover:border-blue-400 transition-all">
             <CardHeader>
-              <FileText className="w-8 h-8 text-blue-500 mb-2" />
-              <CardTitle>View Past Invoices</CardTitle>
+              <FileText className="w-8 h-8 text-blue-600 mb-2" />
+              <CardTitle className="font-bold text-slate-900 text-lg">View Hospital Invoices</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Download PDF receipts and view your complete billing history.</p>
+              <p className="text-sm text-slate-600 leading-relaxed">Download official medical billing statements, PDF invoices, and copay records.</p>
             </CardContent>
           </Card>
         </Link>
         <Link href="/contact" className="block">
-          <Card className="h-full hover:border-primary/50 transition-colors">
+          <Card className="h-full bg-white border border-slate-200/90 rounded-2xl shadow-2xs hover:shadow-md hover:border-blue-400 transition-all">
             <CardHeader>
-              <Briefcase className="w-8 h-8 text-purple-500 mb-2" />
-              <CardTitle>Sales & Enterprise</CardTitle>
+              <Briefcase className="w-8 h-8 text-blue-600 mb-2" />
+              <CardTitle className="font-bold text-slate-900 text-lg">Enterprise Licensing</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Contact our sales team for volume licensing, custom terms, or enterprise deployment.</p>
+              <p className="text-sm text-slate-600 leading-relaxed">Contact sales for hospital network volume licensing, custom BAA agreements, and B2B billing.</p>
             </CardContent>
           </Card>
         </Link>
@@ -57,30 +57,30 @@ export default function BillingPage() {
 
       <div className="grid lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold mb-6">Healthcare Billing FAQ</h2>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger>How are TrackCodex AI minutes calculated?</AccordionTrigger>
+              <AccordionTrigger>How are enterprise hospital licenses billed?</AccordionTrigger>
               <AccordionContent>
-                AI minutes are consumed based on the computational complexity of the task. Generating a small function might use 0.1 minutes, while analyzing a large codebase might use 5-10 minutes. Pro plans include 10,000 minutes per month.
+                Enterprise hospital tiers are billed annually based on active bed capacity, provider licenses, and integrated diagnostic modules.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>Can I pay annually instead of monthly?</AccordionTrigger>
+              <AccordionTrigger>How does electronic insurance claim verification work?</AccordionTrigger>
               <AccordionContent>
-                Yes! When you upgrade your plan, you can select annual billing to receive a 20% discount compared to the monthly rate.
+                AxioVital connects directly with national health insurance clearinghouses via real-time EDI 270/271 protocols for instant copay and eligibility checks.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>What happens if a payment fails?</AccordionTrigger>
+              <AccordionTrigger>Can healthcare networks pay via Wire Transfer or Purchase Order?</AccordionTrigger>
               <AccordionContent>
-                If your card is declined, we will retry the charge 3 times over 7 days. Your services will remain active during this grace period. You will receive email notifications containing a link to update your payment info.
+                Yes! Enterprise hospital networks can request invoice billing with Net-30 or Net-60 payment terms payable via ACH, Wire Transfer, or Purchase Order.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger>How do refunds work?</AccordionTrigger>
+              <AccordionTrigger>How do refunds and claim disputes work?</AccordionTrigger>
               <AccordionContent>
-                We offer a 14-day money-back guarantee on all new subscriptions. Beyond 14 days, we do not offer prorated refunds for mid-billing cycle cancellations, but your premium features will remain active until the end of that cycle.
+                Disputed billing charges or duplicate copay transactions can be submitted directly to our billing support team for prompt review within 3 business days.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -89,18 +89,18 @@ export default function BillingPage() {
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>Submit a Billing Dispute</CardTitle>
-              <CardDescription>If you see an incorrect charge or need a refund, open a billing ticket directly.</CardDescription>
+              <CardTitle>Submit a Billing Inquiry</CardTitle>
+              <CardDescription>If you see an incorrect statement or need assistance with insurance claims, open a billing request.</CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-4">
                 <div className="space-y-2">
-                  <Label>Invoice Number (Optional)</Label>
-                  <Input placeholder="TCX-1029384" />
+                  <Label>Invoice or Claim Reference (Optional)</Label>
+                  <Input placeholder="AXIO-INV-1029384" />
                 </div>
                 <div className="space-y-2">
                   <Label>Description <span className="text-destructive">*</span></Label>
-                  <Textarea placeholder="Explain the issue with your bill..." className="min-h-[120px]" required />
+                  <Textarea placeholder="Explain the billing or insurance inquiry..." className="min-h-[120px]" required />
                 </div>
                 <Button type="button" className="w-full">
                   <Mail className="w-4 h-4 mr-2" />

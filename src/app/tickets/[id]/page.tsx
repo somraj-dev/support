@@ -33,7 +33,7 @@ export default function TicketDetailPage() {
       <PageHeader 
         title={ticket.subject}
         breadcrumbs={[
-          { label: "Tickets", href: "/tickets" },
+          { label: "Support Requests", href: "/tickets" },
           { label: ticket.id }
         ]}
       />
@@ -149,11 +149,11 @@ export default function TicketDetailPage() {
         <div className="lg:w-80 shrink-0 space-y-6">
           <Card>
             <CardHeader className="pb-3 border-b bg-muted/20">
-              <CardTitle className="text-base">Ticket Details</CardTitle>
+              <CardTitle className="text-base">Request Details</CardTitle>
             </CardHeader>
             <CardContent className="pt-4 space-y-4 text-sm">
               <div className="flex justify-between items-center pb-2 border-b border-border/50">
-                <span className="text-muted-foreground">ID</span>
+                <span className="text-muted-foreground">Request ID</span>
                 <span className="font-mono">{ticket.id}</span>
               </div>
               <div className="flex justify-between items-center pb-2 border-b border-border/50">
@@ -161,7 +161,7 @@ export default function TicketDetailPage() {
                 <StatusBadge status={ticket.status} />
               </div>
               <div className="flex justify-between items-center pb-2 border-b border-border/50">
-                <span className="text-muted-foreground">Severity</span>
+                <span className="text-muted-foreground">Urgency</span>
                 <SeverityBadge severity={ticket.severity} />
               </div>
               <div className="flex justify-between items-center pb-2 border-b border-border/50">
@@ -169,8 +169,8 @@ export default function TicketDetailPage() {
                 <span className="font-medium">{ticket.category.replace('_', ' ')}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-muted-foreground">Organization</span>
-                <span className="font-medium">Acme Corp</span>
+                <span className="text-muted-foreground">Healthcare System</span>
+                <span className="font-medium">Metro General Health System</span>
               </div>
             </CardContent>
           </Card>

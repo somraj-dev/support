@@ -32,7 +32,7 @@ function NewTicketForm() {
     severity: TicketSeverity.LOW,
     description: "",
     workspaceId: "none",
-    contactEmail: "developer@example.com"
+    contactEmail: "dr.jenkins@axiovital-health.com"
   })
 
   const [ticketId, setTicketId] = useState("")
@@ -46,37 +46,36 @@ function NewTicketForm() {
   }
 
   const handleSubmit = () => {
-    // In a real app, send api request here
-    setTicketId(`TCK-${Math.floor(Math.random() * 9000) + 1000}`)
+    // Send healthcare support request
+    setTicketId(`AXIO-${Math.floor(Math.random() * 9000) + 1000}`)
     setStep(Step.CONFIRMATION)
     window.scrollTo(0, 0)
   }
 
   const handleAIResolve = () => {
-    // User resolved their own issue via AI docs
     router.push("/")
   }
 
   if (step === Step.CONFIRMATION) {
     return (
       <div className="container max-w-2xl py-10 md:py-20">
-        <Card className="border-emerald-500/20 shadow-lg text-center py-12 px-6">
-          <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6">
-            <CheckCircle2 className="w-8 h-8 text-emerald-500" />
+        <Card className="border-emerald-200 bg-white shadow-xl text-center py-12 px-6 rounded-2xl">
+          <div className="mx-auto w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-6">
+            <CheckCircle2 className="w-8 h-8 text-emerald-600" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Ticket Submitted</h1>
-          <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
-            Your request has been received and is being reviewed by our support team.
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Support Request Submitted</h1>
+          <p className="text-slate-600 text-base mb-8 max-w-md mx-auto leading-relaxed">
+            Your request has been received and assigned to our AxioVital healthcare support engineers.
           </p>
-          <div className="bg-muted min-w-[250px] inline-block p-4 rounded-lg mb-8">
-            <p className="text-sm text-muted-foreground mb-1">Ticket ID</p>
-            <p className="text-2xl font-mono font-medium">{ticketId}</p>
+          <div className="bg-slate-50 border border-slate-200 min-w-[250px] inline-block p-5 rounded-xl mb-8">
+            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Support Request ID</p>
+            <p className="text-2xl font-mono font-bold text-blue-600">{ticketId}</p>
           </div>
           <div className="flex justify-center gap-4">
-            <Button onClick={() => router.push(`/tickets/${ticketId}`)} variant="default">
-              View Ticket
+            <Button onClick={() => router.push(`/tickets/${ticketId}`)} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold">
+              View Request
             </Button>
-            <Button onClick={() => router.push("/")} variant="outline">
+            <Button onClick={() => router.push("/")} variant="outline" className="border-slate-300 text-slate-900 font-semibold">
               Back to Home
             </Button>
           </div>
@@ -86,13 +85,13 @@ function NewTicketForm() {
   }
 
   return (
-    <div className="container max-w-3xl py-10">
+    <div className="container max-w-3xl py-12">
       <PageHeader 
-        title="Submit a Ticket" 
-        description="We'll help you get things sorted out as quickly as possible."
+        title="Submit Support Request" 
+        description="Our healthcare support team is available 24/7 to assist with platform and clinical workflow issues."
         breadcrumbs={[
-          { label: "Tickets", href: "/tickets" },
-          { label: "New Ticket" }
+          { label: "Support Requests", href: "/tickets" },
+          { label: "New Request" }
         ]}
       />
 
@@ -105,8 +104,8 @@ function NewTicketForm() {
       )}
 
       {(step === Step.DETAILS || step === Step.AI_SUGGESTIONS) && (
-        <Card className={step === Step.AI_SUGGESTIONS ? "opacity-50 pointer-events-none" : ""}>
-          <CardContent className="p-6 sm:p-8">
+        <Card className={`bg-white border-slate-200/90 shadow-md rounded-2xl ${step === Step.AI_SUGGESTIONS ? "opacity-50 pointer-events-none" : ""}`}>
+          <CardContent className="p-6 sm:p-10">
             <form onSubmit={handleNext} className="space-y-8">
               
               <div className="space-y-6">
@@ -118,28 +117,35 @@ function NewTicketForm() {
                       onValueChange={(v) => setFormData({...formData, category: v as TicketCategory})}
                     >
                       <SelectTrigger id="category">
-                        <SelectValue placeholder="Select a category" />
+                        <SelectValue placeholder="Select healthcare topic" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value={TicketCategory.ACCOUNT_LOGIN}>Account & Login</SelectItem>
-                        <SelectItem value={TicketCategory.BILLING_PAYMENTS}>Billing & Payments</SelectItem>
-                        <SelectItem value={TicketCategory.IDE}>TrackCodex IDE</SelectItem>
-                        <SelectItem value={TicketCategory.DEPLOYMENT}>Deployments</SelectItem>
-                        <SelectItem value={TicketCategory.BUG_REPORT}>Report a Bug</SelectItem>
-                        <SelectItem value={TicketCategory.ACCOUNT_SUSPENSION_APPEAL}>Account Suspension Appeal</SelectItem>
-                        <SelectItem value={TicketCategory.OTHER}>Other Issue</SelectItem>
+                        <SelectItem value={TicketCategory.PATIENT_ACCOUNTS}>Patient Accounts & Profile</SelectItem>
+                        <SelectItem value={TicketCategory.APPOINTMENT_BOOKING}>Appointment Booking & Telemedicine</SelectItem>
+                        <SelectItem value={TicketCategory.DOCTOR_PORTAL}>Doctor & Physician Portal</SelectItem>
+                        <SelectItem value={TicketCategory.HOSPITAL_DASHBOARD}>Hospital & Clinic Dashboard</SelectItem>
+                        <SelectItem value={TicketCategory.EHR_RECORDS}>Electronic Health Records (EHR)</SelectItem>
+                        <SelectItem value={TicketCategory.DIGITAL_PRESCRIPTIONS}>Digital Prescriptions (E-RX)</SelectItem>
+                        <SelectItem value={TicketCategory.LAB_INTEGRATION}>Laboratory & Diagnostic Sync</SelectItem>
+                        <SelectItem value={TicketCategory.BILLING_INSURANCE}>Billing & Insurance Claims</SelectItem>
+                        <SelectItem value={TicketCategory.AXIO_SMART_CARD}>AXIO Smart Card & NFC Reader</SelectItem>
+                        <SelectItem value={TicketCategory.PRIVACY_SECURITY}>HIPAA Privacy & Security</SelectItem>
+                        <SelectItem value={TicketCategory.BUG_REPORT}>Report Platform Bug</SelectItem>
+                        <SelectItem value={TicketCategory.FEATURE_REQUEST}>Feature Request</SelectItem>
+                        <SelectItem value={TicketCategory.ACCOUNT_SUSPENSION_APPEAL}>Account Appeal</SelectItem>
+                        <SelectItem value={TicketCategory.OTHER}>Other Healthcare Issue</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="workspace">Affected Workspace (Optional)</Label>
+                    <Label htmlFor="workspace">Department / Clinic Unit (Optional)</Label>
                     <Select 
                       value={formData.workspaceId} 
                       onValueChange={(v) => setFormData({...formData, workspaceId: v})}
                     >
                       <SelectTrigger id="workspace">
-                        <SelectValue placeholder="Select workspace" />
+                        <SelectValue placeholder="Select facility unit" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="none">None / Not applicable</SelectItem>
@@ -155,20 +161,20 @@ function NewTicketForm() {
                   <Label htmlFor="subject">Subject <span className="text-destructive">*</span></Label>
                   <Input 
                     id="subject" 
-                    placeholder="Briefly summarize the issue"
+                    placeholder="Briefly summarize your request"
                     value={formData.subject}
                     onChange={(e) => setFormData({...formData, subject: e.target.value})}
                     required
                     minLength={5}
                   />
-                  <p className="text-xs text-muted-foreground">Keep it short and descriptive, e.g. &quot;Payment failed on renewal&quot;</p>
+                  <p className="text-xs text-muted-foreground">Keep it short and descriptive, e.g. &quot;Lab sync delay in Cardiology unit&quot;</p>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="description">Description <span className="text-destructive">*</span></Label>
                   <Textarea 
                     id="description" 
-                    placeholder="Please include steps to reproduce, what you expected to happen, and what actually happened."
+                    placeholder="Provide details about the issue, patient workflow context, steps to reproduce, or urgent medical context."
                     className="min-h-[200px]"
                     value={formData.description}
                     onChange={(e) => setFormData({...formData, description: e.target.value})}
@@ -178,7 +184,7 @@ function NewTicketForm() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="severity">Severity Level</Label>
+                    <Label htmlFor="severity">Urgency Level</Label>
                     <Select 
                       value={formData.severity} 
                       onValueChange={(v) => setFormData({...formData, severity: v as TicketSeverity})}
@@ -187,16 +193,16 @@ function NewTicketForm() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value={TicketSeverity.LOW}>Low - General question or minimal impact</SelectItem>
-                        <SelectItem value={TicketSeverity.MEDIUM}>Medium - Partial feature degradation</SelectItem>
-                        <SelectItem value={TicketSeverity.HIGH}>High - Major workflow blocked</SelectItem>
-                        <SelectItem value={TicketSeverity.CRITICAL}>Critical - Core service outage or data loss</SelectItem>
+                        <SelectItem value={TicketSeverity.LOW}>Low - General inquiry or feature question</SelectItem>
+                        <SelectItem value={TicketSeverity.MEDIUM}>Medium - Non-critical workflow delay</SelectItem>
+                        <SelectItem value={TicketSeverity.HIGH}>High - Department operation impacted</SelectItem>
+                        <SelectItem value={TicketSeverity.CRITICAL}>Critical - Urgent patient care or ER outage</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Contact Email</Label>
+                    <Label htmlFor="email">Healthcare Contact Email</Label>
                     <Input 
                       id="email" 
                       type="email"

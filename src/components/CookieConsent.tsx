@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
 
-const STORAGE_KEY = "trackcodex_cookie_consent"
+const STORAGE_KEY = "axiovital_cookie_consent"
 
 export const CookieConsent: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -57,15 +57,15 @@ export const CookieConsent: React.FC = () => {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-[#11141A] border-t border-[#1E232E] shadow-2xl animate-in slide-in-from-bottom duration-500">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-slate-900 text-white border-t border-slate-800 shadow-2xl animate-in slide-in-from-bottom duration-500 font-sans">
       {!showSettings ? (
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 py-2">
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-lg font-bold text-[#c9d1d9] mb-1">We value your privacy</h3>
-            <p className="text-sm text-[#8b949e]">
+            <h3 className="text-base font-bold text-white mb-1">We value your healthcare privacy</h3>
+            <p className="text-xs text-slate-300">
               We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
               By clicking &quot;Accept All&quot;, you consent to our use of cookies. Read our{" "}
-              <Link href="https://docs.trackcodex.com/governance/policies/privacy" className="text-[#58a6ff] hover:underline">
+              <Link href="/policies" className="text-blue-400 hover:underline">
                 Privacy Policy
               </Link>.
             </p>

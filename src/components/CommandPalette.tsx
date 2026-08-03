@@ -54,48 +54,48 @@ export function CommandPalette() {
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Type a command or search..." />
+      <CommandInput placeholder="Search appointments, records, billing, or platform help..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Quick Actions">
           <CommandItem onSelect={() => runCommand(() => router.push("/new"))}>
             <PlusCircle className="mr-2 h-4 w-4" />
-            <span>Submit New Ticket</span>
+            <span>Submit Support Request</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/tickets"))}>
             <Ticket className="mr-2 h-4 w-4" />
-            <span>View My Tickets</span>
+            <span>View Support Requests</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Pages">
+        <CommandGroup heading="Healthcare Support Pages">
           <CommandItem onSelect={() => runCommand(() => router.push("/"))}>
             <Home className="mr-2 h-4 w-4" />
-            <span>Home</span>
+            <span>Support Home</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/status"))}>
             <Activity className="mr-2 h-4 w-4" />
-            <span>System Status</span>
+            <span>Healthcare System Status</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/billing"))}>
             <CreditCard className="mr-2 h-4 w-4" />
-            <span>Billing Help</span>
+            <span>Billing & Insurance</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/security"))}>
             <ShieldCheck className="mr-2 h-4 w-4" />
-            <span>Security Report</span>
+            <span>HIPAA & Security Policy</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/abuse"))}>
             <AlertTriangle className="mr-2 h-4 w-4" />
-            <span>Report Abuse</span>
+            <span>Report Platform Abuse</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/policies"))}>
             <FileText className="mr-2 h-4 w-4" />
-            <span>Legal & Policies</span>
+            <span>Legal & Compliance</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/contact"))}>
             <LifeBuoy className="mr-2 h-4 w-4" />
-            <span>Contact Support</span>
+            <span>Contact Healthcare Support</span>
           </CommandItem>
         </CommandGroup>
       </CommandList>

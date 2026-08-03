@@ -21,27 +21,33 @@ export default function TicketsPage() {
   const resolvedTickets = filteredTickets.filter(t => t.status === TicketStatus.RESOLVED)
   
   return (
-    <div className="container max-w-5xl py-10">
+    <div className="container max-w-5xl py-12">
       <PageHeader 
-        title="My Tickets" 
-        description="View and manage your support requests."
+        title="Support Requests" 
+        description="View and manage your healthcare platform support requests."
       />
 
       <div className="mb-8 relative max-w-md">
-        <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
         <Input 
-          placeholder="Search tickets by ID or subject..." 
-          className="pl-9"
+          placeholder="Search requests by ID or subject..." 
+          className="pl-10 h-10 bg-white border-slate-200 focus:border-blue-500 rounded-lg shadow-2xs text-slate-900 placeholder:text-slate-400"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="mb-6 bg-muted/50 border">
-          <TabsTrigger value="all">All Tickets ({filteredTickets.length})</TabsTrigger>
-          <TabsTrigger value="open">Open & Pending ({openTickets.length})</TabsTrigger>
-          <TabsTrigger value="resolved">Resolved ({resolvedTickets.length})</TabsTrigger>
+        <TabsList className="mb-6 bg-slate-100/80 border border-slate-200/80 p-1 rounded-xl">
+          <TabsTrigger value="all" className="data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-xs font-semibold text-slate-600 rounded-lg">
+            All Requests ({filteredTickets.length})
+          </TabsTrigger>
+          <TabsTrigger value="open" className="data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-xs font-semibold text-slate-600 rounded-lg">
+            Open & Pending ({openTickets.length})
+          </TabsTrigger>
+          <TabsTrigger value="resolved" className="data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:shadow-xs font-semibold text-slate-600 rounded-lg">
+            Resolved ({resolvedTickets.length})
+          </TabsTrigger>
         </TabsList>
         
         <TabsContent value="all" className="space-y-4">
@@ -51,7 +57,7 @@ export default function TicketsPage() {
             ))
           ) : (
             <div className="text-center py-12 text-muted-foreground border rounded-lg border-dashed">
-              No tickets found matching your search.
+              No support requests found matching your search.
             </div>
           )}
         </TabsContent>
@@ -63,7 +69,7 @@ export default function TicketsPage() {
             ))
           ) : (
             <div className="text-center py-12 text-muted-foreground border rounded-lg border-dashed">
-              You have no open tickets.
+              You have no open support requests.
             </div>
           )}
         </TabsContent>
@@ -75,7 +81,7 @@ export default function TicketsPage() {
             ))
           ) : (
             <div className="text-center py-12 text-muted-foreground border rounded-lg border-dashed">
-              You have no resolved tickets.
+              You have no resolved support requests.
             </div>
           )}
         </TabsContent>

@@ -14,21 +14,21 @@ export default function AbusePage() {
   return (
     <div className="container max-w-3xl py-10">
       <PageHeader 
-        title="Report Abuse" 
-        description="Help us keep TrackCodex safe by reporting violations of our Acceptable Use Policy."
-        breadcrumbs={[{ label: "Abuse" }]}
+        title="Report Abuse & Patient Data Violation" 
+        description="Help us keep AxioVital secure by reporting violations of patient data privacy, unauthorized access, or policy breaches."
+        breadcrumbs={[{ label: "Report Abuse" }]}
       />
 
       <Card className="mb-8 border-amber-500/20">
         <CardContent className="p-6 bg-amber-500/5 items-start flex gap-4 rounded-xl">
           <Flag className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
           <div className="text-sm">
-            <h3 className="font-semibold text-foreground mb-1">What constitutes abuse?</h3>
+            <h3 className="font-semibold text-foreground mb-1">What constitutes platform abuse?</h3>
             <p className="text-muted-foreground mb-3">
-              Abuse includes spam, malware hosting, phishing, harassment, hate speech, and violations of intellectual property.
+              Abuse includes unauthorized patient record access, fake healthcare credentials, spamming doctor portals, phishing, and HIPAA privacy violations.
             </p>
             <Link href="/policies" className="text-primary hover:underline font-medium">
-              Read our Acceptable Use Policy
+              Read our Acceptable Use & Privacy Policies
             </Link>
           </div>
         </CardContent>
@@ -37,26 +37,26 @@ export default function AbusePage() {
       <Card>
         <CardContent className="p-6 sm:p-8 space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="abuse-type">Type of Abuse <span className="text-destructive">*</span></Label>
+            <Label htmlFor="abuse-type">Type of Violation <span className="text-destructive">*</span></Label>
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select abuse type" />
+                <SelectValue placeholder="Select violation type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="spam">Spam / Unsolicited Promotion</SelectItem>
-                <SelectItem value="malware">Malware / Cryptomining</SelectItem>
+                <SelectItem value="unauthorized_access">Unauthorized Patient Data Access</SelectItem>
+                <SelectItem value="fake_credentials">Fraudulent Medical Provider Credentials</SelectItem>
                 <SelectItem value="phishing">Phishing / Credential Theft</SelectItem>
-                <SelectItem value="harassment">Harassment / Hate Speech</SelectItem>
-                <SelectItem value="copyright">Copyright Infringement (DMCA)</SelectItem>
-                <SelectItem value="other">Other Violation</SelectItem>
+                <SelectItem value="prescription_fraud">Digital Prescription Fraud</SelectItem>
+                <SelectItem value="harassment">Harassment / Unsolicited Spam</SelectItem>
+                <SelectItem value="other">Other Healthcare Violation</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="url">Link to offending content <span className="text-destructive">*</span></Label>
-            <Input id="url" placeholder="https://trackcodex.com/..." required />
-            <p className="text-xs text-muted-foreground">Provide the exact URL of the repository, user profile, or workspace.</p>
+            <Label htmlFor="url">Link or Facility ID <span className="text-destructive">*</span></Label>
+            <Input id="url" placeholder="https://axiovital.quantaforze.com/..." required />
+            <p className="text-xs text-muted-foreground">Provide the exact URL, provider profile, or clinic workspace ID.</p>
           </div>
 
           <div className="space-y-2">

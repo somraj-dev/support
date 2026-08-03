@@ -15,19 +15,19 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, breadcrumbs, action }: PageHeaderProps) {
   return (
-    <div className="mb-8">
+    <div className="mb-10 pb-6 border-b border-slate-200/80">
       {breadcrumbs && breadcrumbs.length > 0 && (
-        <nav className="flex items-center text-sm text-muted-foreground mb-4">
-          <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+        <nav className="flex items-center text-xs text-slate-500 mb-3">
+          <Link href="/" className="hover:text-blue-600 transition-colors font-medium">Home</Link>
           {breadcrumbs.map((item, index) => (
             <div key={index} className="flex items-center">
-              <ChevronRight className="h-4 w-4 mx-1" />
+              <ChevronRight className="h-3.5 w-3.5 mx-1.5 text-slate-400" />
               {item.href ? (
-                <Link href={item.href} className="hover:text-foreground transition-colors">
+                <Link href={item.href} className="hover:text-blue-600 transition-colors font-medium">
                   {item.label}
                 </Link>
               ) : (
-                <span className="text-foreground font-medium">{item.label}</span>
+                <span className="text-slate-900 font-semibold">{item.label}</span>
               )}
             </div>
           ))}
@@ -35,9 +35,9 @@ export function PageHeader({ title, description, breadcrumbs, action }: PageHead
       )}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">{title}</h1>
           {description && (
-            <p className="text-muted-foreground mt-2 text-lg">{description}</p>
+            <p className="text-slate-600 mt-2 text-base max-w-2xl leading-relaxed">{description}</p>
           )}
         </div>
         {action && <div>{action}</div>}

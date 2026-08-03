@@ -78,29 +78,29 @@ export default function SecurityPage() {
             <CardHeader className="pb-3">
               <CardTitle className="text-lg flex items-center gap-2 text-primary">
                 <ShieldAlert className="w-5 h-5" />
-                Safe Harbor
+                Safe Harbor & HIPAA Disclosure
               </CardTitle>
             </CardHeader>
             <CardContent className="text-sm space-y-3">
               <p>
-                TrackCodex supports safe harbor for security researchers. If you follow these guidelines, we will not pursue legal action against you.
+                AxioVital supports responsible disclosure for security researchers and HIPAA security officers. If you adhere to these guidelines, we will not pursue legal action.
               </p>
-              <ul className="list-disc pl-4 space-y-1 text-muted-foreground">
-                <li>Do not exploit the vulnerability further than necessary to prove its existence.</li>
-                <li>Do not access, modify, or delete user data.</li>
-                <li>Give us a reasonable time to fix the issue before public disclosure.</li>
+              <ul className="list-disc pl-4 space-y-1 text-muted-foreground text-xs leading-relaxed">
+                <li>Do not exploit vulnerabilities further than necessary to demonstrate risk.</li>
+                <li>Never access, expose, or modify Protected Health Information (PHI).</li>
+                <li>Provide our security team reasonable time to remediate before public disclosure.</li>
               </ul>
             </CardContent>
           </Card>
           
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg">Bug Bounty Program</CardTitle>
+              <CardTitle className="text-lg">HIPAA Compliance Program</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">
-              We currently operate a private bug bounty program on HackerOne. High quality submissions through this form may result in a private invitation.
+              AxioVital undergoes annual independent SOC 2 Type II, ISO 27001, and HIPAA compliance audits.
               <br/><br/>
-              <Link href="/policies" className="text-primary hover:underline font-medium">Read Full Security Policy</Link>
+              <Link href="/policies" className="text-primary hover:underline font-medium">Read Full Security & Privacy Policy</Link>
             </CardContent>
           </Card>
         </div>

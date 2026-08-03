@@ -8,12 +8,12 @@ interface StatusBannerProps {
 export function StatusBanner({ incidents }: StatusBannerProps) {
   if (incidents.length === 0) {
     return (
-      <div className="bg-emerald-500/10 border-b border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
-        <div className="container py-2 text-sm flex items-center justify-center gap-2">
-          <CheckCircle2 className="h-4 w-4" />
-          <span>All systems operational.</span>
-          <Link href="/status" className="underline font-medium hover:text-emerald-700 dark:hover:text-emerald-300">
-            View status page
+      <div className="bg-emerald-50 border-b border-emerald-200/80 text-emerald-800">
+        <div className="container py-1 text-[11px] font-medium flex items-center justify-center gap-1.5 leading-none">
+          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+          <span>All AxioVital Healthcare Systems & FHIR Integration Gateways are fully operational.</span>
+          <Link href="/status" className="underline font-semibold hover:text-emerald-950 ml-0.5">
+            System status page
           </Link>
         </div>
       </div>
@@ -21,12 +21,12 @@ export function StatusBanner({ incidents }: StatusBannerProps) {
   }
 
   return (
-    <div className="bg-destructive/10 border-b border-destructive/20 text-destructive dark:text-red-400">
-      <div className="container py-2 text-sm flex items-center justify-center gap-2">
-        <AlertTriangle className="h-4 w-4" />
-        <span className="font-semibold">TrackCodex is experiencing an incident:</span>
-        <span>{incidents[0].title}</span>
-        <Link href="/status" className="underline font-medium hover:text-destructive dark:hover:text-red-300 ml-2">
+    <div className="bg-amber-50 border-b border-amber-200 text-amber-900">
+      <div className="container py-1 text-[11px] font-medium flex items-center justify-center gap-1.5 leading-none">
+        <AlertTriangle className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+        <span className="font-bold">Maintenance Notice:</span>
+        <span className="truncate max-w-md">{incidents[0].title}</span>
+        <Link href="/status" className="underline font-semibold hover:text-amber-950 ml-0.5">
           More details
         </Link>
       </div>

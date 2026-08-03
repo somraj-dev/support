@@ -6,7 +6,7 @@ export async function POST() {
     // const formData = await request.formData();
     // const file = formData.get("file");
 
-    const stubUrl = `https://storage.trackcodex.com/stub/${Math.random().toString(36).substring(2, 9)}.png`
+    const stubUrl = `https://storage.axiovital.quantaforze.com/stub/${Math.random().toString(36).substring(2, 9)}.png`
 
     return NextResponse.json({
       success: true,
